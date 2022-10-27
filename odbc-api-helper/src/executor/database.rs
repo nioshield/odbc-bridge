@@ -192,12 +192,12 @@ impl<'a> OdbcDbConnection<'a> {
             for index in 0..query_result.columns.len() {
                 let column_view: AnySlice = row_set.column(index);
                 let column_types: Vec<OdbcColumnItem> = column_view.convert();
-                // for vv in &column_types {
-                //     if let Some(tmp_val) = &vv.value {
-                //         let col = query_result.columns.get(index).unwrap();
-                //         println!("xxxx odbc bridge column:{:?}, val:{:?}",col.name,&tmp_val[..])
-                //     }
-                // }
+                for vv in &column_types {
+                    if let Some(tmp_val) = &vv.value {
+                        let col = query_result.columns.get(index).unwrap();
+                        println!("xxxx odbc bridge column:{:?}, val:{:?}",col.name,&tmp_val[..]);
+                    }
+                }
                 if index == 0 {
                     for c in column_types.into_iter() {
                         total_row.push(vec![c]);
