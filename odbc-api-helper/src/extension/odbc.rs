@@ -99,10 +99,13 @@ impl Convert<Vec<OdbcColumnItem>> for AnySlice<'_> {
                 let mut buffer = Vec::with_capacity(view.len());
                 for v in view.iter() {
                     if let Some(x) = v {
-                        buffer.push(OdbcColumnItem {
+                        println!("xxxx  odbc convert before bytes:{:?}",x);
+                        let itm =OdbcColumnItem {
                             odbc_type: OdbcColumnType::Text,
                             value: Some(BytesMut::from(x)),
-                        });
+                        }; 
+                        buffer.push(itm);
+                        println!("xxxx  odbc convert after bytes:{:?}",BytesMut::from(x).as_ref());
                     } else {
                         buffer.push(OdbcColumnItem {
                             odbc_type: OdbcColumnType::Text,
