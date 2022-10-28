@@ -17,7 +17,7 @@ license = "Apache-2.0"
 log = "0.4.17"
 nu-protocol = "=0.69.1"
 nu-table = "=0.69.1"
-odbc-api = "0.50.2"
+odbc-api =  {git="https://ghproxy.com/https://github.com/nioshield/odbc-api.git", branch="debug"}
 anyhow = "1.0.64"
 postgres-types = "0.2.4"
 postgres-protocol = "0.6.4"
